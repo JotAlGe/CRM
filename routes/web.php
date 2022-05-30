@@ -3,6 +3,7 @@
 use App\Http\Controllers\UserController;
 use App\http\Controllers\ClientController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,7 @@ Route::name('admin.')->group(function () {
     Route::resource('users', UserController::class);
     Route::resource('clients', ClientController::class);
     Route::resource('projects', ProjectController::class);
+    Route::resource('tasks', TaskController::class);
 });
 
 require __DIR__ . '/auth.php';

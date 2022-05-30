@@ -28,6 +28,14 @@
                         </span>
                     </x-nav-link>
                 </li>
+                <li class="mr-3 flex-1">
+                    <x-nav-link :href="route('admin.tasks.index')" :active="request()->routeIs('admin.projects.index')" class="block py-1 md:py-3 pl-1 align-middle text-gray-200 no-underline hover:text-white border-b-2 border-gray-200 hover:border-pink-500">
+                        <i class="fas fa-tasks text-gray-200 pr-0 md:pr-3"></i><span
+                            class="pb-1 md:pb-0 text-xs md:text-base text-gray-200 md:text-gray-200 block md:inline-block">
+                        Tareas
+                        </span>
+                    </x-nav-link>
+                </li>
             </ul>
         </div>
     </div>
