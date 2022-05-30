@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use App\http\Controllers\ClientController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +28,7 @@ Route::get('/dashboard', function () {
 Route::name('admin.')->group(function () {
     Route::resource('users', UserController::class);
     Route::resource('clients', ClientController::class);
+    Route::resource('projects', ProjectController::class);
 });
 
 require __DIR__ . '/auth.php';

@@ -8,12 +8,12 @@
         <!-- Table -->
         <div class="w-11/12 mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
             <header class="px-5 py-4 border-b border-gray-100 flex justify-between">
-                <div class="font-semibold text-gray-800">Usuarios</div>
+                <div class="font-semibold text-gray-800">Proyectos</div>
                 <a 
-                    href="{{ route('admin.users.create') }}"
+                    href="{{ route('admin.projects.create') }}"
                     class="text-purple-500 border rounded p-2 hover:text-purple-400">
                     <i class="fas fa-user"></i>
-                    Crear Usuario
+                    Crear Proyecto
                 </a>
             </header>
 
@@ -31,12 +31,27 @@
                             </th>
                             <th class="p-2">
                                 <div class="font-semibold text-left">
-                                    Email
+                                    Descripción
                                 </div>
                             </th>
                             <th class="p-2">
                                 <div class="font-semibold text-left">
-                                    Fecha de verificación
+                                    Plazo
+                                </div>
+                            </th>
+                            <th class="p-2">
+                                <div class="font-semibold text-center">
+                                    Estado
+                                </div>
+                            </th>
+                            <th class="p-2">
+                                <div class="font-semibold text-center">
+                                    Usuario
+                                </div>
+                            </th>
+                            <th class="p-2">
+                                <div class="font-semibold text-center">
+                                    Cliente
                                 </div>
                             </th>
                             <th class="p-2">
@@ -48,27 +63,43 @@
                     </thead>
 
                     <tbody class="text-sm divide-y divide-gray-100">
-                        @foreach ($users as $user)
+                        @foreach ($projects as $project)
                            <tr>
                                 <td class="p-2">
                                     <div class="font-medium text-gray-800">
-                                        {{ $user->name }}
+                                        {{ $project->name }}
                                     </div>
                                 </td>
                                 <td class="p-2">
                                     <div class="font-medium text-gray-800">
-                                        {{ $user->email }}
+                                        {{ $project->description }}
                                     </div>
                                 </td>
                                 <td class="p-2">
                                     <div class="text-left">
-                                        {{ $user->email_verified_at }}
+                                        {{ $project->deadline }}
                                     </div>
                                 </td>
-                                
+                                <td class="p-2">
+                                    <div class="text-left">
+                                        {{ $project->status }}
+                                    </div>
+                                </td>
+                                <td class="p-2">
+                                    <div class="text-left">
+                                        {{ $project->user->name }}
+                                    </div>
+                                </td>
+                                <td class="p-2">
+                                    <div class="text-left">
+                                        {{ $project->client->contact_name }}
+                                    </div>
+                                </td>
+
+                                {{-- actions buttons --}}
                                 <td class="p-2">
                                     <div class="flex justify-center">
-                                        <a href="{{ route('admin.users.edit', $user->id) }}">
+                                        <a href="{{ route('admin.projects.edit', $project->id) }}">
                                             <svg
                                             class="w-8 h-8 hover:text-blue-600 rounded-full hover:bg-gray-100 p-1"
                                                  viewBox="0 0 640 512">
@@ -77,10 +108,10 @@
                                         </a>
 
                                         {{-- delete --}}
-                                        <form action="{{ route('admin.users.destroy', $user->id) }}"
+                                        <form action="{{ route('admin.projects.destroy', $project->id) }}"
                                             method="POST"
                                             onsubmit="
-                                            return confirm('¿Eliminar a {{ $user->name }}?')
+                                            return confirm('¿Eliminar a {{ $project->name }}?')
                                             "
                                             >
                                             @csrf

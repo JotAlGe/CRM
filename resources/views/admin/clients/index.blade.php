@@ -6,7 +6,7 @@
     <section class="antialiased bg-gray-700 text-gray-600 h-screen px-4" x-data="app">
     <div class="flex flex-col justify-center h-full">
         <!-- Table -->
-        <div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
+        <div class="w-11/12 mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
             <header class="px-5 py-4 border-b border-gray-100 flex justify-between">
                 <div class="font-semibold text-gray-800">Clientes</div>
                 <a 
@@ -54,6 +54,11 @@
                                     Teléfono de la compañía
                                 </div>
                             </th>
+                            <th class="p-2">
+                                <div class="font-semibold text-center">
+                                    Acciones
+                                </div>
+                            </th>
                         </tr>
                     </thead>
 
@@ -73,6 +78,11 @@
                                 <td class="p-2">
                                     <div class="text-left">
                                         {{ $client->contact_phone_number }}
+                                    </div>
+                                </td>
+                                <td class="p-2">
+                                    <div class="text-left">
+                                        {{ $client->company_name }}
                                     </div>
                                 </td>
                                 <td class="p-2">
